@@ -46,4 +46,12 @@ class FlexibleContentTest extends TestCase
         $this->assertSame('Image', $field['layouts'][0]['label']);
         $this->assertSame('Title', $field['layouts'][0]['sub_fields'][0]['label']);
     }
+
+    public function testClass()
+    {
+        $field = FlexibleContent::make('Flexible Content Class')
+            ->class('hello-world')
+            ->toArray();
+        $this->assertSame('hello-world', $field['class']);
+    }
 }

@@ -54,4 +54,11 @@ class FlexibleContent extends Field
 
         return $this;
     }
+
+    public function class(string $key): self
+    {
+        $this->config->set('class', $key);
+
+        return $this;
+    }
 }
