@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -16,42 +16,23 @@ namespace WordPlate\Acf\Fields;
 use WordPlate\Acf\Config;
 use WordPlate\Acf\Key;
 
-/**
- * This is the abstract field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 abstract class Field
 {
     /**
-     * The field's config.
-     *
      * @var \WordPlate\Acf\Config
      */
     protected $config;
 
     /**
-     * The field's key prefix.
-     *
      * @var string
      */
     protected $keyPrefix = 'field';
 
     /**
-     * The field's parent key.
-     *
      * @var string
      */
     protected $parentKey;
 
-    /**
-     * Create a new field instance.
-     *
-     * @param string $label
-     * @param string $name
-     *
-     * @return void
-     */
     public function __construct(string $label, ?string $name = null)
     {
         $this->config = new Config([
@@ -60,14 +41,6 @@ abstract class Field
         ]);
     }
 
-    /**
-     * Make a new field instance.
-     *
-     * @param string $label
-     * @param string $name
-     *
-     * @return self
-     */
     public static function make(string $label, ?string $name = null): self
     {
         return new static($label, $name);
@@ -100,11 +73,6 @@ abstract class Field
         $this->parentKey = $parentKey;
     }
 
-    /**
-     * Return the field config as an array.
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         $key = sprintf('%s_%s', $this->parentKey, Key::sanitize($this->config->get('name')));

@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -19,11 +19,6 @@ use WordPlate\Acf\FieldGroup;
 use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Location;
 
-/**
- * This is the field group test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class FieldGroupTest extends TestCase
 {
     public function testFields()

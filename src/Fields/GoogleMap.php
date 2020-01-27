@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -19,11 +19,6 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the google map field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class GoogleMap extends Field
 {
     use ConditionalLogic;
@@ -33,20 +28,10 @@ class GoogleMap extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'google_map';
 
-    /**
-     * Set the center of the map.
-     *
-     * @param float $latitude
-     * @param float $longitude
-     *
-     * @return self
-     */
     public function center(float $latitude, float $longitude): self
     {
         $this->config->set('center_lat', $latitude);
@@ -55,13 +40,6 @@ class GoogleMap extends Field
         return $this;
     }
 
-    /**
-     * Set the zoom level of the map.
-     *
-     * @param int $zoom
-     *
-     * @return self
-     */
     public function zoom(int $zoom): self
     {
         $this->config->set('zoom', $zoom);

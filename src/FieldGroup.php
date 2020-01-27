@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -15,27 +15,13 @@ namespace WordPlate\Acf;
 
 use InvalidArgumentException;
 
-/**
- * This is the field group class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class FieldGroup
 {
     /**
-     * The field group's config.
-     *
      * @var \WordPlate\Acf\Config
      */
     protected $config;
 
-    /**
-     * Create a new field group instance.
-     *
-     * @param array $config
-     *
-     * @return void
-     */
     public function __construct(array $config)
     {
         $requiredKeys = ['title', 'fields', 'location'];
@@ -49,11 +35,6 @@ class FieldGroup
         $this->config = new Config($config);
     }
 
-    /**
-     * Return the field group config as an array.
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         if ($this->config->has('key')) {

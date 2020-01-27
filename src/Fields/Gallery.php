@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -16,6 +16,7 @@ namespace WordPlate\Acf\Fields;
 use InvalidArgumentException;
 use WordPlate\Acf\Fields\Attributes\ConditionalLogic;
 use WordPlate\Acf\Fields\Attributes\Dimensions;
+use WordPlate\Acf\Fields\Attributes\FileSize;
 use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Library;
 use WordPlate\Acf\Fields\Attributes\MimeTypes;
@@ -24,15 +25,11 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\ReturnFormat;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the gallery field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Gallery extends Field
 {
     use ConditionalLogic;
     use Dimensions;
+    use FileSize;
     use Instructions;
     use Library;
     use MimeTypes;
@@ -42,18 +39,12 @@ class Gallery extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'gallery';
 
     /**
-     * Set the insert behaviour.
-     *
-     * @param string $insert
-     *
-     * @return self
+     * @throws \InvalidArgumentException
      */
     public function insert(string $insert): self
     {

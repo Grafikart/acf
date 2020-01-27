@@ -13,20 +13,21 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
-use InvalidArgumentException;
-
-trait NewLines
+trait FileSize
 {
     /**
-     * @throws \InvalidArgumentException
+     * @param int|string|null $min
+     * @param int|string|null $max
      */
-    public function newLines(string $newLines): self
+    public function fileSize($min = null, $max = null): self
     {
-        if (!in_array($newLines, ['br', 'wpautop'])) {
-            throw new InvalidArgumentException("Invalid argument new lines [$newLines].");
+        if ($min !== null) {
+            $this->config->set('min_size', $min);
         }
 
-        $this->config->set('new_lines', $newLines);
+        if ($max !== null) {
+            $this->config->set('max_size', $max);
+        }
 
         return $this;
     }

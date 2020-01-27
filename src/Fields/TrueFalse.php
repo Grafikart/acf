@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -19,11 +19,6 @@ use WordPlate\Acf\Fields\Attributes\Instructions;
 use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the true false field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class TrueFalse extends Field
 {
     use ConditionalLogic;
@@ -33,21 +28,11 @@ class TrueFalse extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'true_false';
 
-    /**
-     * Enable stylised UI.
-     *
-     * @param string|null $onText
-     * @param string|null $offText
-     *
-     * @return self
-     */
-    public function ui(?string $onText = null, ?string $offText = null): self
+    public function stylisedUi(?string $onText = null, ?string $offText = null): self
     {
         $this->config->set('ui', true);
 

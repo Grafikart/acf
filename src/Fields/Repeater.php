@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -22,11 +22,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\SubFields;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the repeater field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Repeater extends Field
 {
     use ButtonLabel;
@@ -39,19 +34,10 @@ class Repeater extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'repeater';
 
-    /**
-     * Select a sub field to show when row is collapsed.
-     *
-     * @param string $name
-     *
-     * @return self
-     */
     public function collapsed(string $name): self
     {
         $this->config->set('collapsed', $name);

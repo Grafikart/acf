@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace WordPlate\Acf\Fields\Attributes;
 
-trait Wrapper
+trait CharacterLimit
 {
-    public function wrapper(array $wrapper): self
+    public function characterLimit(int $limit): self
     {
-        $this->config->set('wrapper', $wrapper);
+        $this->config->set('maxlength', $limit);
 
         return $this;
     }

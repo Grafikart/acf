@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -20,11 +20,6 @@ use WordPlate\Acf\Fields\Attributes\Required;
 use WordPlate\Acf\Fields\Attributes\SubFields;
 use WordPlate\Acf\Fields\Attributes\Wrapper;
 
-/**
- * This is the group field class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Group extends Field
 {
     use ConditionalLogic;
@@ -35,8 +30,6 @@ class Group extends Field
     use Wrapper;
 
     /**
-     * The field type.
-     *
      * @var string
      */
     protected $type = 'group';

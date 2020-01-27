@@ -122,6 +122,7 @@ use WordPlate\Acf\Fields\Text;
 
 Text::make('Name')
     ->instructions('Add the employees name.')
+    ->characterLimit(100)
     ->required();
 ```
 
@@ -218,7 +219,7 @@ use WordPlate\Acf\Fields\TrueFalse;
 TrueFalse::make('Social Media', 'display-social-media')
     ->instructions('Select whether to display social media links or not.')
     ->defaultValue(false)
-    ->ui()
+    ->stylisedUi() // optinal on and off text labels
     ->required();
 ```
 
@@ -233,8 +234,8 @@ File::make('Resturant Menu', 'menu')
     ->instructions('Add the menu <strong>pdf</strong> file.')
     ->defaultValue(false)
     ->mimeTypes(['pdf'])
-    ->library('all')
-    ->size('400 KB', 5) // MB if entered as int
+    ->library('all') // all or uploadedTo
+    ->fileSize('400 KB', 5) // MB if entered as int
     ->returnFormat('array')
     ->required();
 ```
@@ -251,7 +252,8 @@ Gallery::make('Images')
     ->width(1000, 2000)
     ->min(1)
     ->max(6)
-    ->library('all')
+    ->fileSize('400 KB', 5) // MB if entered as int
+    ->library('all') // all or uploadedTo
     ->returnFormat('array')
     ->required();
 ```
@@ -266,7 +268,8 @@ Image::make('Background Image')
     ->mimeTypes(['jpg', 'jpeg', 'png'])
     ->height(500, 1400)
     ->width(1000, 2000)
-    ->library('all')
+    ->fileSize('400 KB', 5) // MB if entered as int
+    ->library('all') // all or uploadedTo
     ->returnFormat('array')
     ->previewSize('medium') // thumbnail, medium or large
     ->required();
@@ -498,7 +501,7 @@ PageLink::make('Contact Link')
     ->taxonomies(['category:city'])
     ->allowArchives()
     ->allowNull()
-    ->multiple()
+    ->allowMultiple()
     ->required();
 ```
 
@@ -511,7 +514,7 @@ PostObject::make('Animal')
     ->instructions('Select an animal')
     ->postTypes(['animal'])
     ->allowNull()
-    ->multiple()
+    ->allowMultiple()
     ->required();
 ```
 

@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/acf
  */
 
 declare(strict_types=1);
@@ -42,10 +42,16 @@ class FileTest extends TestCase
         File::make('Invalid Return Format')->returnFormat('test')->toArray();
     }
 
-    public function testSize()
+    public function testFileSize()
     {
-        $field = File::make('Max Size')->size('400 KB', 5)->toArray();
+        $field = File::make('File Size')->fileSize('400 KB', 5)->toArray();
         $this->assertSame('400 KB', $field['min_size']);
         $this->assertSame(5, $field['max_size']);
+
+        $field = File::make('Min File Size')->fileSize(10)->toArray();
+        $this->assertArrayNotHasKey('max_size', $field);
+
+        $field = File::make('Max File Size')->fileSize(null, 20)->toArray();
+        $this->assertArrayNotHasKey('min_size', $field);
     }
 }
